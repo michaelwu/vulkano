@@ -761,6 +761,7 @@ impl PipelineLayoutCreateInfo {
             }
         }
 
+        /*
         for ((limit, count_all), count_not_uab) in PER_STAGE_DESCRIPTOR_LIMITS
             .iter()
             .zip(per_stage_descriptors_all)
@@ -806,9 +807,9 @@ impl PipelineLayoutCreateInfo {
                     return Err(Box::new(ValidationError {
                         context: "set_layouts".into(),
                         problem: format!(
-                            "the combined number of {} descriptors, \
+                            "the combined number of {} descriptors ({}), \
                             accessible to the `ShaderStage::{:?}` stage, \
-                            exceeds the `{}` limit",
+                            exceeds the `{}` limit ({})",
                             limit.descriptor_types[1..].iter().fold(
                                 format!("`DescriptorType::{:?}`", limit.descriptor_types[0]),
                                 |mut s, dt| {
@@ -816,8 +817,10 @@ impl PipelineLayoutCreateInfo {
                                     s
                                 }
                             ),
+                            max_count,
                             max_stage,
                             limit.limit_name_all,
+                            limit_all,
                         )
                         .into(),
                         vuids: limit.vuids_all,
@@ -885,6 +888,7 @@ impl PipelineLayoutCreateInfo {
                 }));
             }
         }
+        */
 
         let mut seen_stages = ShaderStages::empty();
 
