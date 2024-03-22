@@ -411,6 +411,7 @@ impl RawBuffer {
                     }));
                 }
 
+                /*
                 if !external_buffer_properties
                     .external_memory_properties
                     .exportable
@@ -427,6 +428,7 @@ impl RawBuffer {
                         ..Default::default()
                     }));
                 }
+                */
 
                 if !external_buffer_properties
                     .external_memory_properties
