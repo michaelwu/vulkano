@@ -18,5 +18,9 @@ foldhash = { workspace = true }
 vulkano = { workspace = true }
 winit = { workspace = true }
 
+[features]
+default = ["x11"]
+x11 = ["winit/x11"]
+
 [lints]
 workspace = true
